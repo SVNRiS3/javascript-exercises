@@ -1,8 +1,7 @@
 const palindromes = function (word) {
-    const regex = /[^a-zA-Z\d]/g;
-    filteredWord = word.replace(regex, "");
+    filteredWord = word.toLowerCase().replace(/[^a-z0-9]/g, "");
     reversedWord = filteredWord.split("").reverse().join("");
-    return filteredWord.toLowerCase() === reversedWord.toLowerCase();
+    return filteredWord === reversedWord;
 };
 
 // Do not edit below this line
