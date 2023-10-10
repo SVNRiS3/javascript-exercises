@@ -1,19 +1,14 @@
 const fibonacci = function (number) {
     if (number < 0) return "OOPS";
-    let temp1 = 1;
-    let sum = 0;
-    let temp2 = 1;
-    let n = 1;
-    do {
-        if (n > 1)
-            temp1 = sum;
-        sum += temp2;
-        temp2 = temp1;
-        n++;
+    if (number == 0) return 0;
+    let prev1 = 1;
+    let prev2 = 0;
+    for (i = 1; i < number; i++) {
+        let sum = prev1 + prev2;
+        prev2 = prev1;
+        prev1 = sum;
     }
-    while (n < number)
-    return sum;
-    //1 1 2 3 5 8
+    return prev1;
 };
 
 // Do not edit below this line
