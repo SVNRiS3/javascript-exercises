@@ -1,18 +1,13 @@
 const findTheOldest = function (people) {
-	return people.reduce(
-		(oldest, person) => {
-			let endYear = person.yearOfDeath
-				? person.yearOfDeath
-				: new Date().getFullYear();
-			let yearsLived = endYear - person.yearOfBirth;
-			if (oldest.age < yearsLived) {
-				oldest.name = person.name;
-				oldest.age = yearsLived;
-			}
-			return oldest;
-		},
-		{ name: "", age: 0 }
-	);
+	return people.sort((a, b) => {
+		let aAge =
+			(a.yearOfDeath ? a.yearOfDeath : new Date().getFullYear()) -
+			a.yearOfBirth;
+		let bAge =
+			(b.yearOfDeath ? b.yearOfDeath : new Date().getFullYear()) -
+			b.yearOfBirth;
+		return bAge - aAge;
+	})[0];
 };
 
 // Do not edit below this line
